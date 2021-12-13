@@ -150,17 +150,17 @@ export const postEdit = async (req, res) => {
     file,
   } = req;
   ///////////////////////////////////////////////////////
-  if (email === sessionEmail || username === sessionUsername) {
+  /*    if (email === sessionEmail || username === sessionUsername) {
     return res.status(400).render("edit-profile", {
       pageTitle: "Edit Profile",
       errorMessage: "This username/email is already taken.",
-    });
-  }
+    }); 
+  } */
   //////////////////////////////////////////////////////////
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file ? file.location : avatarUrl,
       name,
       email,
       username,
