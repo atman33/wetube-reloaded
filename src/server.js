@@ -26,12 +26,6 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
-app.use((req, res, next) => {
-  res.header("Cross-Origin-Embedder-Policy", "credentialless");
-  res.header("Cross-Origin-Opener-Policy", "same-origin");
-  res.header("Cross-Origin-Resource-Policy", "cross-origin");
-  next();
-});
 
 app.use(flash());
 app.use(localsMiddleware);
